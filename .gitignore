@@ -35,5 +35,6 @@ yarn-error.*
 *.tsbuildinfo
 
 
-# VSCode
+# VSCode and python
 .vscode/
+__pycache__
