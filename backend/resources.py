@@ -40,7 +40,7 @@ def get_sentence_grammar_score(language: str, sentence: str) -> float:
 def get_sentence_grammar_mistakes(language: str, sentence: str) -> str:
     system = f"You are a {language} teacher, trying to correct grammar mistakes from a \
     student learning {language}. You will read a given sentence, and give just the mistake \
-    and the corrections, without any other text."
+    and the corrections, without any other text. Make sure to respond in English."
     user = sentence
     
     response = call_api(system, [user])

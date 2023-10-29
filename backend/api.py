@@ -27,7 +27,7 @@ def process_text():
 def generate_prompts():
 	language: str = request.args.get("lang")
 	category: str = call_api("You're teaching a {language} class, and are coming up with a topic for your students to talk about. In one or two words, generate a category of topics that would be good for someone to talk about when they are learning {language}. Respond with only the category name. Your response should only be one or two words total.", "")
-	prompts: str = call_api(f"In the category of {category.content}, come up with four prompts, each around one or two sentences in english, for someone who is learning {language} to respond to. Respond with only the text needed for the prompts, with no other formatting. Use fewer than 100 words total. Separate each prompt with $$$", "")
+	prompts: str = call_api(f"In the category of {category.content}, come up with four prompts, each around one or two sentences in english, for someone who is learning {language} to respond to. Respond with only the text needed for the prompts, with no other formatting. Use fewer than 100 words total. Separate each prompt with $$$. Make sure the prompts are in English.", "")
 	return {"category": category.content, "prompts": prompts.content.replace("\n", "").split(".")}
 
 app.run(port=5000)
