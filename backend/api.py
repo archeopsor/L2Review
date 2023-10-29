@@ -20,7 +20,7 @@ def process_text():
 		mistakes = get_sentence_grammar_mistakes(language, sentence)
 		results.append([score, mistakes])
 	
-	return results
+	return {"results": results}
 
 
 @app.route("/prompts")

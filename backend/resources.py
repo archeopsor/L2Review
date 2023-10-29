@@ -44,7 +44,7 @@ def get_sentence_grammar_mistakes(language: str, sentence: str) -> str:
     user = sentence
     
     response = call_api(system, [user])
-    print(response)
+    return response['content']
 
 
 def split_into_sentences(sentence: str) -> list[str]:
