@@ -4,16 +4,19 @@ import CategoryBox from './frontend/category_box';
 
 export default function App() {
 
-  const food = {
-    backgroundclass: "bg_red"
-  }
-
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>L2Review</Text>
-      <StatusBar style="light" />
+      <View style={styles.home}>
+        <Text style={styles.text}>L2Review</Text>
+        <StatusBar style="light" />
 
-      <CategoryBox></CategoryBox>
+        <CategoryBox></CategoryBox>
+      </View>
+
+      <View style={styles.prompts}>
+        <Text></Text>
+      </View>
+      
     </View>
   );
 }
@@ -24,6 +27,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  home: {
+    display: 'show',
+  },
+  prompts: {
+    display: 'hide',
   },
   text: {
     color: 'white',
