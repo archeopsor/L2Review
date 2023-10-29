@@ -1,26 +1,45 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { useState } from 'react';
 
 const CategoryBox = ({}) => {
+
+  const [visible, setVisibility] = useState(true);
+
+  const getCategory = () => {
+    setVisibility(false)
+  }
+
   return (
-    <View style={styles.button}>
+    <View>
 
       {/* hobbies, travel, food, entertainment, ... */}
-      <Pressable onPress={() => alert('Box pressed')}>
-        <Text style={styles.text}>Give me a category!</Text>
-      </Pressable>
+      { visible ?
 
+      <View style={styles.button}>
+        <Pressable onPress={() => getCategory()}>
+          <Text style={styles.text}>Give me a category!</Text>
+        </Pressable>
+      </View> : <Pressable><Text></Text></Pressable>
+
+      }
+      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    height: 100,
-    width: 100,
+    height: 200,
+    width: 200,
     borderRadius: 10,
     backgroundColor: '#4B9CD3',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  blank: {
+    backgroundColor: 'black',
+    height: 0,
+    width: 0,
   },
   text: {
     color: 'white',
