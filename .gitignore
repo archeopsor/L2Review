@@ -38,3 +38,4 @@ yarn-error.*
 # VSCode and python
 .vscode/
 __pycache__
+.env
