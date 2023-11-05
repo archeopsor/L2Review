@@ -1,29 +1,37 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator} from 'react-navigation-stack';
-import CategoryBox from './frontend/category_box';
+import CategoryBox from './category_box';
 
 /* Track different screens */
 const Screen = ({}) => {
   
+    // TODO: return a different screen based on the 'visible' useState from category_box
     return (
-      <View></View>
+        <View style={styles.container}>
+            <View style={styles.home}>
+                <CategoryBox></CategoryBox>
+            </View>
+
+            <View style={styles.prompts}>
+                <Text></Text>
+            </View>
+        </View>
     );
   }
   
   const styles = StyleSheet.create({
-    text: {
-      color: 'white',
-    },
-    screen: {
-        display: 'flex',
-        justifyContent: 'center',
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
         alignItems: 'center',
-    },
+        justifyContent: 'center',
+      },
+      home: {
+        display: 'show',
+      },
+      prompts: {
+        display: 'hide',
+      },
   });
   
   export default Screen;

@@ -5,6 +5,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
 import CategoryBox from './frontend/category_box';
+import Screen from './frontend/screen';
 
 export default function App() {
 
@@ -12,16 +13,7 @@ export default function App() {
 
   const HomeScreen = props => {
       return (
-        <View style={styles.container}>
-          <View style={styles.home}>
-
-            <CategoryBox></CategoryBox>
-          </View>
-
-          <View style={styles.prompts}>
-            <Text></Text>
-          </View>
-        </View>
+        <Screen></Screen>
       );
   };
 
@@ -47,18 +39,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  home: {
-    display: 'show',
-  },
-  prompts: {
-    display: 'hide',
-  },
   head_text: {
     color: 'white',
     fontSize: 20,
@@ -70,5 +50,5 @@ const styles = StyleSheet.create({
   sav: {
     flex: 1,
     backgroundColor: 'black',
-  }
+  },
 });
