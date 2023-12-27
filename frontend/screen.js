@@ -5,7 +5,6 @@ import CategoryBox from './category_box';
 /* Track different screens */
 const Screen = ({}) => {
   
-    // TODO: return a different screen based on the 'visible' useState from category_box
     return (
         <View style={styles.container}>
             <View style={styles.home}>
