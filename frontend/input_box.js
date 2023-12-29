@@ -1,18 +1,36 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 import React from 'react';
+import axios from 'axios';
 
 // Box for user to input response to prompt
 const InputBox = ({}) => {
 
-    const [text, textChange] = React.useState('');
+    const [text, setMsg] = React.useState('');
+
+    function submitMsg() {
+      // Post text to backend
+      axios.post('http://localhost:5000/process_text', {language: "Detect Language", text: text})
+      .then((res) => {
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      })
+    }
   
     return (
       <View>
         <TextInput 
           style={styles.input} 
-          onChangeText={textChange} 
+          multiline={true}
+          onChangeText={setMsg} 
           placeholder="Start typing here" 
-          value={text}></TextInput>
+          value={text}
+          onKeyPress={
+            (event) => {
+              if (event.nativeEvent.key === 'Enter') {
+                submitMsg();
+              }
+            }}></TextInput>
       </View>
     );
   }
