@@ -9,7 +9,9 @@ const InputBox = ({}) => {
 
     function submitMsg() {
       // Post text to backend
-      axios.post('http://localhost:5000/process_text', {language: "Detect Language", text: text})
+      axios.post('http://localhost:5000/process_text', 
+      new URLSearchParams({language: "Detect Language", text: text}),
+      {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
       .then((res) => {
         console.log(res);
       }).catch(err => {
@@ -29,6 +31,7 @@ const InputBox = ({}) => {
             (event) => {
               if (event.nativeEvent.key === 'Enter') {
                 submitMsg();
+                setMsg('');
               }
             }}></TextInput>
       </View>
