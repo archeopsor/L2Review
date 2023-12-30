@@ -36,6 +36,22 @@ def get_sentence_grammar_score(language: str, sentence: str) -> float:
         return int(response['content']) / 100
     except ValueError:
         return int(re.findall(r'\d+', response['content'])[0]) / 100
+    
+
+def get_sentence_complexity_score(language: str, sentence: str) -> float:
+    system = f"You are a {language} teacher, trying to grade a student who is \
+    learning {language} based on how advanced their use of language is. You will read a \
+    given sentence, and give the student a number from 0 to 100 to represent how \
+    advanced their use of language is, with 0 being child-level and 100 being very complex. \
+    Respond only with this number, and with no other text, for each sentence individually."
+    user = f"Grade this sentence: {sentence}"
+
+    response = call_api(system, [user])
+    try:
+        return int(response['content']) / 100
+    except ValueError:
+        return int(re.findall(r'\d+', response['content'])[0]) / 100
+
 
 def get_sentence_grammar_mistakes(language: str, sentence: str) -> str:
     system = f"You are a {language} teacher, trying to correct grammar mistakes from a \
