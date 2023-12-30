@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useState } from 'react';
+import InputBox from './input_box';
 
 const CategoryBox = ({}) => {
 
@@ -19,7 +20,10 @@ const CategoryBox = ({}) => {
         <Pressable onPress={() => getCategory()}>
           <Text style={styles.text}>Give me a category!</Text>
         </Pressable>
-      </View> : <Pressable><Text></Text></Pressable>
+      </View> : 
+      <View style={styles.input}>
+        <InputBox></InputBox>
+      </View>
 
       }
       
@@ -33,6 +37,10 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 10,
     backgroundColor: '#4B9CD3',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
     alignItems: 'center',
     justifyContent: 'center',
   },
